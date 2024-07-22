@@ -26,7 +26,7 @@ jobs:
       PORT: 8080
     services:
       mongodb:
-        image: mango
+        image: mongo
         env:
           MONGO_INITDB_ROOT_USERNAME: ${{ env.MONGO_INITDB_ROOT_USERNAME }}
           MONGO_INITDB_ROOT_PASSWORD: ${{ env.MONGO_INITDB_ROOT_PASSWORD }}
