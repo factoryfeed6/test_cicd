@@ -21,12 +21,15 @@ jobs:
       ### mongo db for isolated workflow
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
-      MONGO_INITDB_CLUSTER_ADDRESS: mongodb
+      # MONGO_INITDB_CLUSTER_ADDRESS: mongodb
+      MONGO_INITDB_CLUSTER_ADDRESS: 127.0.0.1:27017
       MONGO_INITDB_CLUSTER_PROTOCOL: mongodb
       PORT: 8080
     services:
       mongodb:
         image: mongo
+        ports:
+          - 27017:27017
         env:
           MONGO_INITDB_ROOT_USERNAME: ${{ env.MONGO_INITDB_ROOT_USERNAME }}
           MONGO_INITDB_ROOT_PASSWORD: ${{ env.MONGO_INITDB_ROOT_PASSWORD }}
@@ -69,7 +72,10 @@ jobs:
 ### this are used to may use of container to runn the workflow 
 ## the github runner is used to host the docker image 
 ### the rest of the actions is executed inside the image
-
+#### see even we comment out the container thing the workflow run using ubuntu & still we can use the service container 
+### but now there wont be some automated network will be created  using continaer lables for connectiing that wont work
+## instead of that you have to use local IP addesss need to hardcoded & also you can specify the port no.
+### port no. should be forworded 
 
 
 #### services & image is a reserved key word
