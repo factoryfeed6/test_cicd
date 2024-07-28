@@ -69,7 +69,9 @@ jobs:
     # image: node:16
 
 ### this above container & image are reserved key words 
-### this are used to may use of container to runn the workflow 
+### this are used to may use of container to runn the workflow
+### MONGO_INITDB_CLUSTER_ADDRESS: mongodb
+#### if we are using the container for isolated wf then we will use the servies where we will specify the image and connection address  
 ## the github runner is used to host the docker image 
 ### the rest of the actions is executed inside the image
 #### see even we comment out the container thing the workflow run using ubuntu & still we can use the service container 
